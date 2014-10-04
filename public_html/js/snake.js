@@ -21,4 +21,5 @@ function gameLoop() {
 
 function gameDraw() {
     context.fillStyle = "rgb(180, 250, 213)";
+    context.fillRect(0, 0, screenWidth, screenHeigth); 
 }
