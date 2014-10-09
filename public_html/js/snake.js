@@ -8,20 +8,22 @@ var screenHeight;
 
 gameInitialize ();
 snakeInitialize ();
-gameDraw ();
-snakeDraw ();
 
 function gameInitialize () {
     var canvas = document.getElementById ("game-screen");
     context = canvas.getContext ("2d");
+    
     screenWidth = window.innerWidth;
     screenHeight = window.innerHeight;
+    
     canvas.height = screenHeight;
     canvas.width = screenWidth;
     }
     
 function gameLoop() {
-    
+    gameDraw ();
+    snakeDraw ();
+    snakeUpdate ();
 }
 
 function gameDraw() {
@@ -50,5 +52,13 @@ function snakeDraw(){
 }
 
 function snakeUpdate(){
+    var snakeHeadX = snake[0].x;
+    var snakeHeadY = snake[0].y;
     
+    snakeHeadX++;
+    
+    var snakeTail = snake.pop();
+    
+    snakeTail.x = snakeHeadX;
+    snakeTail.y = snakeHeadY;
 }
